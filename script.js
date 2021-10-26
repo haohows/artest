@@ -36,7 +36,8 @@ let places = [
             lat: "25.038155722612128",
             lng: "121.42192321065698",
         },
-        name: "ggg"
+        name: "ggg",
+        herf: ""
     },
     {
         // 25.038698728406267, 121.4218454497278
@@ -44,7 +45,8 @@ let places = [
             lat: "25.038698728406267",
             lng: "121.4218454497278",
         },
-        name: "aaa"
+        name: "aaa",
+        herf: ""
     },
     {
         // 25.038324123400365, 121.42251495236201
@@ -52,7 +54,8 @@ let places = [
             lat: "25.038324123400365",
             lng: "121.42251495236201",
         },
-        name: "bbb"
+        name: "bbb",
+        herf: "https://www.google.com/"
     },
     {
         // 25.038456438143236, 121.42154768226726
@@ -60,16 +63,18 @@ let places = [
             lat: "25.038456438143236",
             lng: "121.42154768226726",
         },
-        name: "ccc"
+        name: "ccc",
+        herf: "https://pz.haohows.com/"
     },
     // 25.038376204170984, 121.42155038201922
-      {
-  
+    {
+
         location: {
-              lat: "25.038376204170984",
-              lng: "121.42155038201922",
+            lat: "25.038376204170984",
+            lng: "121.42155038201922",
         },
-        name: "eee"
+        name: "eee",
+        herf: ""
     }
 ];
 
@@ -107,4 +112,28 @@ window.onload = () => {
         //     timeout: 27000,
         // }
     );
+};
+
+
+const clickListener = function (ev) {
+    ev.stopPropagation();
+    ev.preventDefault();
+
+    const name = ev.target.getAttribute('name');
+    const el = ev.detail.intersection && ev.detail.intersection.object.el;
+
+    if (el && el === ev.target) {
+        // after click, we are adding a label with the name of the place
+        const label = document.createElement('span');
+        const container = document.createElement('div');
+        container.setAttribute('id', 'place-label');
+        label.innerText = name;
+        container.appendChild(label);
+        document.body.appendChild(container);
+
+        setTimeout(() => {
+            // that will disappear after less than 2 seconds
+            container.parentElement.removeChild(container);
+        }, 1500);
+    }
 };

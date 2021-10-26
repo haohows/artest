@@ -31,19 +31,19 @@
 // };
 let places = [
     {
-        // 25.038155722612128, 121.42192321065698
+        // 25.03801231997909, 121.42193392864564
         location: {
-            lat: "25.038155722612128",
-            lng: "121.42192321065698",
+            lat: "25.03801231997909",
+            lng: "121.42193392864564",
         },
         name: "ggg",
         herf: ""
     },
     {
-        // 25.038698728406267, 121.4218454497278
+        // 25.038907690919984, 121.42198219245905
         location: {
-            lat: "25.038698728406267",
-            lng: "121.4218454497278",
+            lat: "25.038907690919984",
+            lng: "121.42198219245905",
         },
         name: "aaa",
         herf: ""
@@ -66,16 +66,6 @@ let places = [
         name: "ccc",
         herf: "https://pz.haohows.com/"
     },
-    // 25.038376204170984, 121.42155038201922
-    {
-
-        location: {
-            lat: "25.038376204170984",
-            lng: "121.42155038201922",
-        },
-        name: "eee",
-        herf: ""
-    }
 ];
 
 window.onload = () => {
@@ -95,6 +85,7 @@ window.onload = () => {
             const placeText = document.createElement('a-link');
             placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
             placeText.setAttribute('title', place.name);
+            placeText.setAttribute('herf', place.herf);
             placeText.setAttribute('scale', '5 5 5');
 
             placeText.addEventListener('loaded', () => {
@@ -112,28 +103,4 @@ window.onload = () => {
         //     timeout: 27000,
         // }
     );
-};
-
-
-const clickListener = function (ev) {
-    ev.stopPropagation();
-    ev.preventDefault();
-
-    const name = ev.target.getAttribute('name');
-    const el = ev.detail.intersection && ev.detail.intersection.object.el;
-
-    if (el && el === ev.target) {
-        // after click, we are adding a label with the name of the place
-        const label = document.createElement('span');
-        const container = document.createElement('div');
-        container.setAttribute('id', 'place-label');
-        label.innerText = name;
-        container.appendChild(label);
-        document.body.appendChild(container);
-
-        setTimeout(() => {
-            // that will disappear after less than 2 seconds
-            container.parentElement.removeChild(container);
-        }, 1500);
-    }
 };

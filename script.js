@@ -1,7 +1,4 @@
 window.onload = () => {
-    const button = document.querySelector('button[data-action="change"]');
-    button.innerText = '﹖';
-
     let places = staticLoadPlaces();
     renderPlaces(places);
 };
@@ -67,13 +64,6 @@ function renderPlaces(places) {
         setModel(models[0], model);
 
         model.setAttribute('animation-mixer', '');
-
-        // document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-        //     var entity = document.querySelector('[gps-entity-place]');
-        //     modelIndex++;
-        //     var newIndex = modelIndex % models.length;
-        //     setModel(models[newIndex], entity);
-        // });
 
         scene.appendChild(model);
     });

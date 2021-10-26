@@ -11,8 +11,9 @@ function staticLoadPlaces() {
         {
             name: 'Pokèmon',
             location: {
-                lat: 25.03823975781662,
-                lng: 121.4219301258781,
+                // 25.037771317268, 121.4218922487905
+                lat: 25.037771317268,
+                lng: 121.4218922487905,
             },
         },
     ];
@@ -20,15 +21,9 @@ function staticLoadPlaces() {
 
 var models = [
     {
-        url: './assets/01.jpg',
-        scale: '0.01 0.01 0.01',
-        info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '0 360 0',
-    },
-    {
         url: './assets/articuno/scene.gltf',
-        scale: '0.2 0.2 0.2',
-        rotation: '0 360 0',
+        scale: '10 10 10',
+        rotation: '0 180 0',
         info: '急凍鳥',
     },
     {
@@ -39,7 +34,7 @@ var models = [
     },
 ];
 
-var modelIndex = 0;
+// var modelIndex = 0;
 var setModel = function (model, entity) {
     if (model.scale) {
         entity.setAttribute('scale', model.scale);
@@ -69,16 +64,16 @@ function renderPlaces(places) {
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
 
-        setModel(models[modelIndex], model);
+        setModel(models[0], model);
 
         model.setAttribute('animation-mixer', '');
 
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
-            modelIndex++;
-            var newIndex = modelIndex % models.length;
-            setModel(models[newIndex], entity);
-        });
+        // document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+        //     var entity = document.querySelector('[gps-entity-place]');
+        //     modelIndex++;
+        //     var newIndex = modelIndex % models.length;
+        //     setModel(models[newIndex], entity);
+        // });
 
         scene.appendChild(model);
     });

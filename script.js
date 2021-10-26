@@ -1,6 +1,6 @@
 window.onload = () => {
-    const button = document.querySelector('button[data-action="change"]');
-    button.innerText = '﹖';
+    // const button = document.querySelector('button[data-action="change"]');
+    // button.innerText = '﹖';
 
     let places = staticLoadPlaces();
     renderPlaces(places);
@@ -11,32 +11,31 @@ function staticLoadPlaces() {
         {
             name: 'Pokèmon',
             location: {
-                lat: 25.034675974817578,
-                lng: 121.43168564290076
+                lat: 25.035060029064756,
+                lng: 121.4316864652255
             },
         },
     ];
 }
 
 var models = [
-    {
-        url: './assets/magnemite/scene.gltf',
-        scale: '0.5 0.5 0.5',
-        info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '0 180 0',
-    },
+    // {
+    //     url: './assets/magnemite/scene.gltf',
+    //     scale: '0.5 0.5 0.5',
+    //     info: 'Magnemite, Lv. 5, HP 10/10',
+    //     rotation: '0 180 0',
+    // },
     {
         url: './assets/articuno/scene.gltf',
         scale: '0.2 0.2 0.2',
         rotation: '0 180 0',
-        info: 'Articuno, Lv. 80, HP 100/100',
     },
-    {
-        url: './assets/dragonite/scene.gltf',
-        scale: '0.08 0.08 0.08',
-        rotation: '0 180 0',
-        info: 'Dragonite, Lv. 99, HP 150/150',
-    },
+    // {
+    //     url: './assets/dragonite/scene.gltf',
+    //     scale: '0.08 0.08 0.08',
+    //     rotation: '0 180 0',
+    //     info: 'Dragonite, Lv. 99, HP 150/150',
+    // },
 ];
 
 var modelIndex = 0;
@@ -73,12 +72,12 @@ function renderPlaces(places) {
 
         model.setAttribute('animation-mixer', '');
 
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
-            modelIndex++;
-            var newIndex = modelIndex % models.length;
-            setModel(models[newIndex], entity);
-        });
+        // document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+        //     var entity = document.querySelector('[gps-entity-place]');
+        //     modelIndex++;
+        //     var newIndex = modelIndex % models.length;
+        //     setModel(models[newIndex], entity);
+        // });
 
         scene.appendChild(model);
     });

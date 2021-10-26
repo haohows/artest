@@ -89,8 +89,8 @@ window.onload = () => {
             // placeText.setAttribute('scale', '5 5 5');
 
             placeText.setAttribute('src', place.img);
-            placeText.setAttribute('height', 5);
-            placeText.setAttribute('width', 10);
+            placeText.setAttribute('height', 15);
+            placeText.setAttribute('width', 20);
 
             placeText.addEventListener('loaded', () => {
                 window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))

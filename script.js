@@ -1,80 +1,101 @@
-window.onload = () => {
-    const button = document.querySelector('button[data-action="change"]');
-    // button.innerText = '﹖';
+// getting places from APIs
+// function loadPlaces(position) {
+//     const params = {
+//         radius: 300,    // search places not farther than this value (in meters)
+//         clientId: '<YOUR-CLIENT-ID>',
+//         clientSecret: 'YOUR-CLIENT-SECRET',
+//         version: '20300101',    // foursquare versioning, required but unuseful for this demo
+//     };
 
-    let places = staticLoadPlaces();
-    renderPlaces(places);
-};
+//     // CORS Proxy to avoid CORS problems
+//     const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
-function staticLoadPlaces() {
-    return [
-        {
-            name: 'Pokèmon',
-            location: {
-                // 25.038497073370927, 121.42114076751803
-                lat: 25.038497073370927,
-                lng: 121.42114076751803,
-            },
+//     // Foursquare API (limit param: number of maximum places to fetch)
+//     const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
+//         &ll=${position.latitude},${position.longitude}
+//         &radius=${params.radius}
+//         &client_id=${params.clientId}
+//         &client_secret=${params.clientSecret}
+//         &limit=30 
+//         &v=${params.version}`;
+//     return fetch(endpoint)
+//         .then((res) => {
+//             return res.json()
+//                 .then((resp) => {
+//                     return resp.response.venues;
+//                 })
+//         })
+//         .catch((err) => {
+//             console.error('Error with places API', err);
+//         })
+// };
+let places = [
+    {
+        // 25.038155722612128, 121.42192321065698
+        location: {
+            lat: "25.038155722612128",
+            lng: "121.42192321065698",
         },
-    ];
-}
-
-var models = [
-    {
-        url: './assets/articuno/scene.gltf',
-        scale: '0.2 0.2 0.2',
-        rotation: '0 180 0',
-        info: '急凍鳥',
+        name: "南面"
     },
     {
-        url: './assets/dragonite/scene.gltf',
-        scale: '0.08 0.08 0.08',
-        rotation: '0 360 0',
-        info: 'Dragonite, Lv. 99, HP 150/150',
+        // 25.038698728406267, 121.4218454497278
+        location: {
+            lat: "25.038698728406267",
+            lng: "121.4218454497278",
+        },
+        name: "北面"
     },
+    {
+        // 25.038324123400365, 121.42251495236201
+        location: {
+            lat: "25.038324123400365",
+            lng: "121.42251495236201",
+        },
+        name: "東面"
+    },
+    {
+        // 25.038456438143236, 121.42154768226726
+        location: {
+            lat: "25.038456438143236",
+            lng: "121.42154768226726",
+        },
+        name: "西面"
+    }
 ];
 
-// var modelIndex = 0;
-var setModel = function (model, entity) {
-    if (model.scale) {
-        entity.setAttribute('scale', model.scale);
-    }
+window.onload = () => {
+    const scene = document.querySelector('a-scene');
 
-    if (model.rotation) {
-        entity.setAttribute('rotation', model.rotation);
-    }
+    // first get current user location
+    return navigator.geolocation.getCurrentPosition(function (position) {
 
-    if (model.position) {
-        entity.setAttribute('position', model.position);
-    }
+        // than use it to load from remote APIs some places nearby
+        // loadPlaces(position.coords)
+        // .then((places) => {
+        places.forEach((place) => {
+            const latitude = place.location.lat;
+            const longitude = place.location.lng;
 
-    entity.setAttribute('gltf-model', model.url);
+            // add place name
+            const placeText = document.createElement('a-link');
+            placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+            placeText.setAttribute('title', place.name);
+            placeText.setAttribute('scale', '5 5 5');
 
-    const div = document.querySelector('.instructions');
-    div.innerText = model.info;
+            placeText.addEventListener('loaded', () => {
+                window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+            });
+
+            scene.appendChild(placeText);
+        });
+        // })
+    },
+        // (err) => console.error('Error in retrieving position', err),
+        // {
+        //     enableHighAccuracy: true,
+        //     maximumAge: 0,
+        //     timeout: 27000,
+        // }
+    );
 };
-
-function renderPlaces(places) {
-    let scene = document.querySelector('a-scene');
-
-    places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
-
-        let model = document.createElement('a-entity');
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-
-        setModel(models[0], model);
-
-        model.setAttribute('animation-mixer', '');
-
-        // document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-        //     var entity = document.querySelector('[gps-entity-place]');
-        //     modelIndex++;
-        //     var newIndex = modelIndex % models.length;
-        //     setModel(models[newIndex], entity);
-        // });
-
-        scene.appendChild(model);
-    });
-}

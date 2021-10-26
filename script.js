@@ -31,10 +31,10 @@
 // };
 let places = [
     {
-        // 25.03801231997909, 121.42193392864564
+        // 25.038390070742217, 121.42193927711831
         location: {
-            lat: "25.03801231997909",
-            lng: "121.42193392864564",
+            lat: "25.038390070742217",
+            lng: "121.42193927711831",
         },
         name: "ggg",
         img: ""
@@ -89,8 +89,8 @@ window.onload = () => {
             // placeText.setAttribute('scale', '5 5 5');
 
             placeText.setAttribute('src', place.img);
-            placeText.setAttribute('height', 5);
-            placeText.setAttribute('width', 5);
+            placeText.setAttribute('height', 1.5);
+            placeText.setAttribute('width', 3);
 
             placeText.addEventListener('loaded', () => {
                 window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))

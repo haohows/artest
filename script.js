@@ -55,7 +55,7 @@ let places = [
             lng: "121.42251495236201",
         },
         name: "bbb",
-        img: ""
+        img: "./assets/01.jpg"
     },
     {
         // 25.038456438143236, 121.42154768226726
@@ -89,6 +89,8 @@ window.onload = () => {
             // placeText.setAttribute('scale', '5 5 5');
 
             placeText.setAttribute('src', place.img);
+            placeText.setAttribute('height', 5);
+            placeText.setAttribute('width', 5);
 
             placeText.addEventListener('loaded', () => {
                 window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))

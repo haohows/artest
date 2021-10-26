@@ -1,76 +1,101 @@
-window.onload = () => {
-    const button = document.querySelector('button[data-action="change"]');
-    button.innerText = '﹖';
+// getting places from APIs
+// function loadPlaces(position) {
+//     const params = {
+//         radius: 300,    // search places not farther than this value (in meters)
+//         clientId: '<YOUR-CLIENT-ID>',
+//         clientSecret: 'YOUR-CLIENT-SECRET',
+//         version: '20300101',    // foursquare versioning, required but unuseful for this demo
+//     };
 
-    let places = staticLoadPlaces();
-    renderPlaces(places);
-};
+//     // CORS Proxy to avoid CORS problems
+//     const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
-function staticLoadPlaces() {
-    return [
-        {
-            name: 'Pokèmon',
-            location: {
-                lat: 25.035060029064756,
-                lng: 121.4316864652255
-            },
-        },
-    ];
-}
+//     // Foursquare API (limit param: number of maximum places to fetch)
+//     const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
+//         &ll=${position.latitude},${position.longitude}
+//         &radius=${params.radius}
+//         &client_id=${params.clientId}
+//         &client_secret=${params.clientSecret}
+//         &limit=30 
+//         &v=${params.version}`;
+//     return fetch(endpoint)
+//         .then((res) => {
+//             return res.json()
+//                 .then((resp) => {
+//                     return resp.response.venues;
+//                 })
+//         })
+//         .catch((err) => {
+//             console.error('Error with places API', err);
+//         })
+// };
 
-var models = [
-
+let places = [
     {
-        url: './assets/articuno/scene.gltf',
-        scale: '0.2 0.2 0.2',
-        rotation: '0 180 0',
+        lat: "25.035050308213247",
+        lng: "121.43170121737388",
+        name: "1號"
     },
-
-
-
+    {
+        lat: "25.035205841744904",
+        lng: "121.43149736950528",
+        name: "2號"
+    },
+    {
+        lat: "25.035338288112488",
+        lng: "121.4314946872965",
+        name: "3號"
+    },
+    {
+        lat: "25.03548410046189",
+        lng: "121.4315764946648",
+        name: "4號"
+    },
+    {
+        lat: "25.035284823540945",
+        lng: "121.43182594008293",
+        name: "5號"
+    },
+    {
+        lat: "25.035176679222726",
+        lng: "121.43174010940142",
+        name: "6號"
+    }
 ];
 
-var modelIndex = 0;
-var setModel = function (model, entity) {
-    if (model.scale) {
-        entity.setAttribute('scale', model.scale);
-    }
 
-    if (model.rotation) {
-        entity.setAttribute('rotation', model.rotation);
-    }
+window.onload = () => {
+    const scene = document.querySelector('a-scene');
 
-    if (model.position) {
-        entity.setAttribute('position', model.position);
-    }
+    // first get current user location
+    // return navigator.geolocation.getCurrentPosition(function (position) {
 
-    entity.setAttribute('gltf-model', model.url);
-
-    const div = document.querySelector('.instructions');
-    div.innerText = model.info;
-};
-
-function renderPlaces(places) {
-    let scene = document.querySelector('a-scene');
-
+    // than use it to load from remote APIs some places nearby
+    // loadPlaces(position.coords)
+    // .then((places) => {
     places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
+        const latitude = place.lat;
+        const longitude = place.lng;
 
-        let model = document.createElement('a-entity');
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+        // add place name
+        const placeText = document.createElement('a-link');
+        placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+        placeText.setAttribute('title', place.name);
+        placeText.setAttribute('scale', '15 15 15');
 
-        setModel(models[modelIndex], model);
-
-        model.setAttribute('animation-mixer', '');
-
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
-            modelIndex++;
-            var newIndex = modelIndex % models.length;
-            setModel(models[newIndex], entity);
+        placeText.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
         });
 
-        scene.appendChild(model);
+        scene.appendChild(placeText);
     });
-}
+    // })
+    // },
+    // (err) => console.error('Error in retrieving position', err),
+    // {
+    //     enableHighAccuracy: true,
+    //     maximumAge: 0,
+    //     timeout: 27000,
+    // }
+    // );
+};

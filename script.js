@@ -37,7 +37,7 @@ let places = [
             lng: "121.42193392864564",
         },
         name: "ggg",
-        herf: ""
+        img: ""
     },
     {
         // 25.038907690919984, 121.42198219245905
@@ -46,7 +46,7 @@ let places = [
             lng: "121.42198219245905",
         },
         name: "aaa",
-        herf: ""
+        img: ""
     },
     {
         // 25.038324123400365, 121.42251495236201
@@ -55,7 +55,7 @@ let places = [
             lng: "121.42251495236201",
         },
         name: "bbb",
-        herf: "https://www.google.com/"
+        img: ""
     },
     {
         // 25.038456438143236, 121.42154768226726
@@ -64,7 +64,7 @@ let places = [
             lng: "121.42154768226726",
         },
         name: "ccc",
-        herf: "https://pz.haohows.com/"
+        img: "./assets/01.jpg"
     },
 ];
 
@@ -82,11 +82,13 @@ window.onload = () => {
             const longitude = place.location.lng;
 
             // add place name
-            const placeText = document.createElement('a-link');
+            const placeText = document.createElement('a-image');
             placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-            placeText.setAttribute('title', place.name);
-            placeText.setAttribute('herf', place.herf);
-            placeText.setAttribute('scale', '5 5 5');
+            // placeText.setAttribute('title', place.name);
+            // placeText.setAttribute('herf', place.herf);
+            // placeText.setAttribute('scale', '5 5 5');
+
+            placeText.setAttribute('src', place.img);
 
             placeText.addEventListener('loaded', () => {
                 window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))

@@ -1,4 +1,7 @@
 window.onload = () => {
+    const button = document.querySelector('button[data-action="change"]');
+    // button.innerText = '﹖';
+
     let places = staticLoadPlaces();
     renderPlaces(places);
 };
@@ -8,9 +11,9 @@ function staticLoadPlaces() {
         {
             name: 'Pokèmon',
             location: {
-                // 25.038341818750396, 121.42182776411754
-                lat: 25.038341818750396,
-                lng: 121.42182776411754,
+                // 25.037771317268, 121.4218922487905
+                lat: 25.037771317268,
+                lng: 121.4218922487905,
             },
         },
     ];
@@ -64,6 +67,13 @@ function renderPlaces(places) {
         setModel(models[0], model);
 
         model.setAttribute('animation-mixer', '');
+
+        // document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+        //     var entity = document.querySelector('[gps-entity-place]');
+        //     modelIndex++;
+        //     var newIndex = modelIndex % models.length;
+        //     setModel(models[newIndex], entity);
+        // });
 
         scene.appendChild(model);
     });

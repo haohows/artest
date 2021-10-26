@@ -1,91 +1,38 @@
-// getting places from APIs
-// function loadPlaces(position) {
-//     const params = {
-//         radius: 300,    // search places not farther than this value (in meters)
-//         clientId: '<YOUR-CLIENT-ID>',
-//         clientSecret: 'YOUR-CLIENT-SECRET',
-//         version: '20300101',    // foursquare versioning, required but unuseful for this demo
-//     };
-
-//     // CORS Proxy to avoid CORS problems
-//     const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-
-//     // Foursquare API (limit param: number of maximum places to fetch)
-//     const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
-//         &ll=${position.latitude},${position.longitude}
-//         &radius=${params.radius}
-//         &client_id=${params.clientId}
-//         &client_secret=${params.clientSecret}
-//         &limit=30 
-//         &v=${params.version}`;
-//     return fetch(endpoint)
-//         .then((res) => {
-//             return res.json()
-//                 .then((resp) => {
-//                     return resp.response.venues;
-//                 })
-//         })
-//         .catch((err) => {
-//             console.error('Error with places API', err);
-//         })
-// };
-
-let places = [
-    {
-        lat: "25.035342443040633",
-        lng: "121.43148178559154",
-        name: "聖言樓"
-    },
-    {
-        lat: "25.0359312591485",
-        lng: "121.43142559368194",
-        name: "百鍊廳"
-    },
-    {
-        lat: "25.035920742042894",
-        lng: "121.4305759064258",
-        name: "濟時樓"
-    },
-    {
-        lat: "25.035775605747382",
-        lng: "121.43097056987368",
-        name: "理園"
-    },
-];
-
-
 window.onload = () => {
-    const scene = document.querySelector('a-scene');
+    let places = staticLoadPlaces();
+    renderPlaces(places);
+};
 
-    // first get current user location
-    // return navigator.geolocation.getCurrentPosition(function (position) {
+function staticLoadPlaces() {
+    return [
+        {
+            name: 'Magnemite',
+            location: {
+                lat: 25.038368555687637,
+                lng: 121.42188385777635,
+            }
+        },
+    ];
+}
 
-    // than use it to load from remote APIs some places nearby
-    // loadPlaces(position.coords)
-    // .then((places) => {
+function renderPlaces(places) {
+    let scene = document.querySelector('a-scene');
+
     places.forEach((place) => {
-        const latitude = place.lat;
-        const longitude = place.lng;
+        let latitude = place.location.lat;
+        let longitude = place.location.lng;
 
-        // add place name
-        const placeText = document.createElement('a-link');
-        placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        placeText.setAttribute('title', place.name);
-        placeText.setAttribute('scale', '30 30 30');
+        let model = document.createElement('a-entity');
+        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+        model.setAttribute('gltf-model', './assets/magnemite/scene.gltf');
+        model.setAttribute('rotation', '0 180 0');
+        model.setAttribute('animation-mixer', '');
+        model.setAttribute('scale', '0.5 0.5 0.5');
 
-        placeText.addEventListener('loaded', () => {
+        model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
         });
 
-        scene.appendChild(placeText);
+        scene.appendChild(model);
     });
-    // })
-    // },
-    // (err) => console.error('Error in retrieving position', err),
-    // {
-    //     enableHighAccuracy: true,
-    //     maximumAge: 0,
-    //     timeout: 27000,
-    // }
-    // );
-};
+}

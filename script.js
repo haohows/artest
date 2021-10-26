@@ -11,9 +11,9 @@ function staticLoadPlaces() {
         {
             name: 'Pokèmon',
             location: {
-                // 25.037771317268, 121.4218922487905
-                lat: 25.037771317268,
-                lng: 121.4218922487905,
+                // 25.03886935842251, 121.4218467301978
+                lat: 25.03886935842251,
+                lng: 121.4218467301978,
             },
         },
     ];
@@ -22,7 +22,7 @@ function staticLoadPlaces() {
 var models = [
     {
         url: './assets/articuno/scene.gltf',
-        scale: '10 10 10',
+        scale: '0.2 0.2 0.2',
         rotation: '0 180 0',
         info: '急凍鳥',
     },

@@ -23,10 +23,10 @@
         </a-entity> -->
 
         <a-assets>
-            <a-mixin id="cube" geometry="primitive: box"></a-mixin>
-            <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
-            <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
-            <a-mixin id="green" material="color: green"></a-mixin>
+            <!-- <a-mixin id="cube" geometry="primitive: box"></a-mixin> -->
+            <!-- <a-mixin id="cube-hovered" material="color: magenta"></a-mixin> -->
+            <!-- <a-mixin id="cube-selected" material="color: cyan"></a-mixin> -->
+            <!-- <a-mixin id="green" material="color: green"></a-mixin> -->
             <!-- <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin> -->
             <img id="boxTexture" src="./assets/img/mYmmbrp.jpg">
         </a-assets>
@@ -37,14 +37,15 @@
             </a-animation>
         </a-box> -->
 
-        <a-entity position="0 1 0">
+        <a-entity gps-entity-place="longitude: 12.489820; latitude: 41.892590;">
             <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
-                    <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
-                    </a-animation>
-                    <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000" fill="backwards">
-                    </a-animation>
+                <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
+                </a-animation>
+                <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000"
+                    fill="backwards">
+                </a-animation>
             </a-box>
-        <!-- <a-entity mixin="cube green">
+            <!-- <a-entity mixin="cube green">
             <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
             </a-animation>
             <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000" fill="backwards">

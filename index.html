@@ -24,8 +24,18 @@
         </a-assets>
 
 
-        <a-box 
-            src="./assets/img/wooden.png" position="0 10 0" rotation="0 45 45" scale="30 30 30"
+        <a-box gps-entity-place="longitude:  121.42171092012869; latitude: 25.038371429858344"
+            src="./assets/img/mYmmbrp.jpg" position="0 10 0" rotation="0 45 45" scale="2 2 2"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 4; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000"
+            animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+        </a-box>
+
+
+        <a-box gps-entity-place="longitude:  121.42198852873919; latitude: 25.038311891238045"
+            src="./assets/img/wooden.png" position="0 10 0" rotation="0 45 45" scale="2 2 2"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 4; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
@@ -40,7 +50,7 @@
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
                 cursor="fuse: true;" material="color: cyan; shader: flat" position="0 0 -3"
-                geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.12;">
+                geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;">
             </a-entity>
         </a-camera>
     </a-scene>

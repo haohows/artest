@@ -90,14 +90,21 @@
                 </a-entity>
             </a-entity>
         </a-entity> -->
-        <a-box id="tt" src="#rock" position="0 2 -5" rotation="0 45 45" scale="1 1 1"
-            animation__position="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
-            animation__mouseenter="property: scale; to: 2.3 2.3 2.3; dur: 300; startEvents: mouseenter"
-            animation__mouseleave="property: scale; to: 2 2 2; dur: 300; startEvents: mouseleave"></a-box>
+        <a-box id="tt" src="#rock" position="0 0 -4" rotation="0 45 45" scale="1 1 1"
+            animation__rotation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 0.3; dir: alternate; dur: 2000; loop: true">
+            <!-- <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000" fill="backwards"> -->
+            </a-animation>
+        </a-box>
 
 
         <a-camera>
-            <a-cursor></a-cursor>
+            <a-entity
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                cursor="fuse: true;" material="color: cyan; shader: flat" position="0 0.8 -3" geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.12;">
+            </a-entity>
         </a-camera>
 
         <!-- <a-entity gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" rotation="0 180 0"
@@ -116,7 +123,7 @@
     </a-scene>
     <script>
         var boxEl = document.querySelector('#tt');
-        boxEl.addEventListener('mouseenter', function () {
+        boxEl.addEventListener('click', function () {
             console.log(12);
         });
     </script>

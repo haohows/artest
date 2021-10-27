@@ -11,6 +11,7 @@
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
+    <script src="./script.js"></script>
 
 </head>
 
@@ -18,79 +19,20 @@
     <a-scene vr-mode-ui="enabled: false" embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-        <!-- <a-assets>
-            <a-mixin id="cube" geometry="primitive: box"></a-mixin>
-            <a-mixin id="cube-hovered" material="color: magenta"></a-mixin> -->
-        <!-- <a-mixin id="cube-selected" material="color: cyan"></a-mixin> -->
-        <!-- <a-mixin id="green" material="color: green"></a-mixin> -->
-        <!-- <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin> -->
-        <!-- <img id="boxTexture" src="./assets/img/mYmmbrp.jpg"> -->
-        <!-- </a-assets> -->
-
-
-        <!-- <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
-            <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
-            </a-animation>
-        </a-box> -->
-
-        <!-- <a-entity gps-entity-place="longitude: 12.489820; latitude: 41.892590;"> -->
-        <!-- <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
-                <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
-                </a-animation>
-                <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000"
-                    fill="backwards">
-                </a-animation>
-            </a-box> -->
-        <!-- <a-entity mixin="cube green">
-            <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
-            </a-animation>
-            <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000" fill="backwards">
-            </a-animation>
-        </a-entity>
-        </a-entity> -->
-
-        <!-- <a-camera gps-camera rotation-reader>
-            <a-entity camera look-controls wasd-controls>
-                <a-entity position="0 0.7 -3" geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;"
-                    material="color: cyan; shader: flat" cursor="fuse: true">
-                    <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2"
-                        to="1 1 1" dur="150"></a-animation>
-                    <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1"
-                        to="0.2 0.2 0.2" dur="1500"></a-animation>
-                </a-entity>
-            </a-entity>
-        </a-camera> -->
-
-        <!-- <a-entity position="0 2.2 4">
-            <a-entity camera look-controls wasd-controls>
-                <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
-                    material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true">
-                    <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2" to="1 1 1"
-                        dur="150"></a-animation>
-                    <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1"
-                        to="0.2 0.2 0.2" dur="1500"></a-animation>
-                </a-entity>
-            </a-entity>
-        </a-entity> -->
-
-
         <a-assets>
             <img id="rock" src="./assets/img/mYmmbrp.jpg">
             <img id="wooden" src="./assets/img/wooden.png">
-
         </a-assets>
 
-        <!-- <a-entity gps-entity-place="longitude: 121.42190172619516; latitude: 25.038309875871352;">
-            <a-box id="tt" src="#wooden" position="0 0 -4" rotation="0 45 45" scale="1 1 1"
-                animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
-                animation__2="property: object3D.position.y; to: 0.3; dir: alternate; dur: 2000; loop: true"
-                animation__3="property: rotation;startEvents: click;; to: 0 420 420; dir: alternate; dur: 2500; easing:easeOutCubic;"
-                animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000"
-                animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
-            </a-box>
-        </a-entity> -->
-        <a-entity gltf-model="./assets/articuno/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15"
-            gps-entity-place="longitude: 121.42371219083367; latitude: 25.03833177032781;" animation-mixer />
+
+        <!-- <a-box gps-entity-place="longitude: 121.42371219083367; latitude: 25.03833177032781;"
+            src="./assets/img/wooden.png" position="0 0 -4" rotation="0 45 45" scale="1 1 1"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 0.3; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click;; to: 0 420 420; dir: alternate; dur: 2500; easing:easeOutCubic;"
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000"
+            animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+        </a-box> -->
 
 
         <a-camera>
@@ -104,10 +46,10 @@
         </a-camera>
 
     </a-scene>
-    <script>
+    <!-- <script>
         var boxEl = document.querySelector('#tt');
         boxEl.addEventListener('click', function () {
             console.log(12);
         });
-    </script>
+    </script> -->
 </body>

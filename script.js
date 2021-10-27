@@ -1,96 +1,44 @@
-// getting places from APIs
-// function loadPlaces(position) {
-//     const params = {
-//         radius: 300,    // search places not farther than this value (in meters)
-//         clientId: '<YOUR-CLIENT-ID>',
-//         clientSecret: 'YOUR-CLIENT-SECRET',
-//         version: '20300101',    // foursquare versioning, required but unuseful for this demo
-//     };
-
-//     // CORS Proxy to avoid CORS problems
-//     const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-
-//     // Foursquare API (limit param: number of maximum places to fetch)
-//     const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
-//         &ll=${position.latitude},${position.longitude}
-//         &radius=${params.radius}
-//         &client_id=${params.clientId}
-//         &client_secret=${params.clientSecret}
-//         &limit=30 
-//         &v=${params.version}`;
-//     return fetch(endpoint)
-//         .then((res) => {
-//             return res.json()
-//                 .then((resp) => {
-//                     return resp.response.venues;
-//                 })
-//         })
-//         .catch((err) => {
-//             console.error('Error with places API', err);
-//         })
-// };
+console.log("喵");
 let places = [
+    // 25.038324123400365, 121.42251495236201
     {
-        // 25.038390070742217, 121.42193927711831
-        location: {
-            lat: "25.038390070742217",
-            lng: "121.42193927711831",
-        },
-        name: "ggg",
-        img: ""
-    },
-    {
-        // 25.038907690919984, 121.42198219245905
-        location: {
-            lat: "25.038907690919984",
-            lng: "121.42198219245905",
-        },
-        name: "aaa",
-        img: ""
-    },
-    {
-        // 25.038324123400365, 121.42251495236201
         location: {
             lat: "25.038324123400365",
             lng: "121.42251495236201",
         },
         name: "bbb",
-        img: "./assets/01.jpg"
+        img: "./assets/img/mYmmbrp.jpg"
     },
+    // 25.038456438143236, 121.42154768226726
     {
-        // 25.038456438143236, 121.42154768226726
         location: {
             lat: "25.038456438143236",
             lng: "121.42154768226726",
         },
         name: "ccc",
-        img: "./assets/01.jpg"
+        img: "./assets/img/wooden.png"
     },
 ];
 
 window.onload = () => {
     const scene = document.querySelector('a-scene');
 
-    // first get current user location
     return navigator.geolocation.getCurrentPosition(function (position) {
-
-        // than use it to load from remote APIs some places nearby
-        // loadPlaces(position.coords)
-        // .then((places) => {
         places.forEach((place) => {
             const latitude = place.location.lat;
             const longitude = place.location.lng;
-
             // add place name
-            const placeText = document.createElement('a-image');
+            const placeText = document.createElement('a-box');
             placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-            // placeText.setAttribute('title', place.name);
-            // placeText.setAttribute('herf', place.herf);
-            // placeText.setAttribute('scale', '5 5 5');
-
             placeText.setAttribute('src', place.img);
-            placeText.setAttribute('height', 15);
-            placeText.setAttribute('width', 20);
+            placeText.setAttribute('position', "0 0 -4");
+            placeText.setAttribute('rotation', "0 45 45");
+            placeText.setAttribute('scale', "1 1 1");
+            placeText.setAttribute('animation', "property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear");
+            placeText.setAttribute('animation__2', "property: object3D.position.y; to: 0.3; dir: alternate; dur: 2000; loop: true");
+            placeText.setAttribute('animation__3', "property: rotation;startEvents: click;; to: 0 420 420; dir: alternate; dur: 2500; easing:easeOutCubic;");
+            placeText.setAttribute('animation__4', "property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000");
+            placeText.setAttribute('animation__5', "property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear");
 
             placeText.addEventListener('loaded', () => {
                 window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
@@ -98,13 +46,8 @@ window.onload = () => {
 
             scene.appendChild(placeText);
         });
-        // })
+
     },
-        // (err) => console.error('Error in retrieving position', err),
-        // {
-        //     enableHighAccuracy: true,
-        //     maximumAge: 0,
-        //     timeout: 27000,
-        // }
+
     );
 };

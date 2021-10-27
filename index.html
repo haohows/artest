@@ -16,14 +16,36 @@
 <body style='margin: 0; overflow: hidden;'>
     <a-scene vr-mode-ui="enabled: false" embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-        <a-entity gltf-model="./assets/articuno/scene.gltf" rotation="0 180 0" scale="0.1 0.1 0.1"
+        <!-- <a-entity gltf-model="./assets/articuno/scene.gltf" rotation="0 180 0" scale="0.1 0.1 0.1"
             gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" animation-mixer>
             <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000" fill="backwards">
             </a-animation>
+        </a-entity> -->
+
+        <a-assets>
+            <a-mixin id="cube" geometry="primitive: box"></a-mixin>
+            <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
+            <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
+            <a-mixin id="red" material="color: red"></a-mixin>
+            <a-mixin id="green" material="color: green"></a-mixin>
+            <a-mixin id="blue" material="color: blue"></a-mixin>
+            <a-mixin id="yellow" material="color: yellow"></a-mixin>
+            <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
+        </a-assets>
+
+
+
+
+        <a-entity position="0 1 0">
+            <a-entity mixin="cube green" gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;">
+                <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000"
+                    fill="backwards">
+                </a-animation>
+            </a-entity>
         </a-entity>
         <a-camera gps-camera rotation-reader>
             <a-entity camera look-controls wasd-controls>
-                <a-entity position="0 0.8 -3" geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;"
+                <a-entity position="0 0.7 -3" geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;"
                     material="color: cyan; shader: flat" cursor="fuse: true">
                     <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2"
                         to="1 1 1" dur="150"></a-animation>

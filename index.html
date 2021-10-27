@@ -17,11 +17,9 @@
     <a-scene vr-mode-ui="enabled: false" embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-        <a-entity gltf-model="./assets/articuno/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15"
-            gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" animation-mixer />
         <!-- <a-assets>
             <a-mixin id="cube" geometry="primitive: box"></a-mixin>
-            <!-- <a-mixin id="cube-hovered" material="color: magenta"></a-mixin> -->
+            <a-mixin id="cube-hovered" material="color: magenta"></a-mixin> -->
         <!-- <a-mixin id="cube-selected" material="color: cyan"></a-mixin> -->
         <!-- <a-mixin id="green" material="color: green"></a-mixin> -->
         <!-- <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin> -->
@@ -80,6 +78,7 @@
             <a-mixin id="rock" material="src: ./assets/img/mYmmbrp.jpg"></a-mixin>
         </a-assets>
 
+
         <a-entity position="0 2.2 4">
             <a-entity camera look-controls wasd-controls>
                 <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
@@ -94,7 +93,7 @@
 
 
 
-        <!-- <a-entity gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" rotation="0 180 0"
+        <a-entity gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" rotation="0 180 0"
             scale="1 1 1" mixin="cube rock">
 
             <a-animation begin="click" attribute="rotation" to="0 360 0" easing="ease-out" dur="2000" fill="forwards">
@@ -104,7 +103,7 @@
             <a-animation attribute="rotation" to="0 360 0" easing="linear" dur="20000" repeat="indefinite">
             </a-animation>
 
-        </a-entity> -->
+        </a-entity>
 
 
     </a-scene>

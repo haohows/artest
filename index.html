@@ -7,11 +7,11 @@
     <title>TaskAR</title>
     <!-- <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script> -->
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -30,7 +30,7 @@
         <a-entity position="0 2.2 4">
             <a-entity camera look-controls wasd-controls>
                 <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
-                    material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true">
+                    material="color: cyan; shader: flat" cursor="fuse: true">
                     <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2"
                         to="1 1 1" dur="150"></a-animation>
                     <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1"

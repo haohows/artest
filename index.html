@@ -22,14 +22,14 @@
             </a-animation>
         </a-entity> -->
 
-        <a-assets>
-            <!-- <a-mixin id="cube" geometry="primitive: box"></a-mixin> -->
+        <!-- <a-assets>
+            <a-mixin id="cube" geometry="primitive: box"></a-mixin>
             <!-- <a-mixin id="cube-hovered" material="color: magenta"></a-mixin> -->
             <!-- <a-mixin id="cube-selected" material="color: cyan"></a-mixin> -->
             <!-- <a-mixin id="green" material="color: green"></a-mixin> -->
             <!-- <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin> -->
-            <img id="boxTexture" src="./assets/img/mYmmbrp.jpg">
-        </a-assets>
+            <!-- <img id="boxTexture" src="./assets/img/mYmmbrp.jpg"> -->
+        <!-- </a-assets> -->
 
 
         <!-- <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
@@ -37,23 +37,23 @@
             </a-animation>
         </a-box> -->
 
-        <a-entity gps-entity-place="longitude: 12.489820; latitude: 41.892590;">
-            <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
+        <!-- <a-entity gps-entity-place="longitude: 12.489820; latitude: 41.892590;"> -->
+            <!-- <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
                 <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
                 </a-animation>
                 <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000"
                     fill="backwards">
                 </a-animation>
-            </a-box>
+            </a-box> -->
             <!-- <a-entity mixin="cube green">
             <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
             </a-animation>
             <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000" fill="backwards">
             </a-animation>
-        </a-entity> -->
         </a-entity>
+        </a-entity> -->
 
-        <a-camera gps-camera rotation-reader>
+        <!-- <a-camera gps-camera rotation-reader>
             <a-entity camera look-controls wasd-controls>
                 <a-entity position="0 0.7 -3" geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;"
                     material="color: cyan; shader: flat" cursor="fuse: true">
@@ -63,6 +63,48 @@
                         to="0.2 0.2 0.2" dur="1500"></a-animation>
                 </a-entity>
             </a-entity>
-        </a-camera>
+        </a-camera> -->
+
+        <!-- <a-entity position="0 2.2 4">
+            <a-entity camera look-controls wasd-controls>
+                <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
+                    material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true">
+                    <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2" to="1 1 1"
+                        dur="150"></a-animation>
+                    <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1"
+                        to="0.2 0.2 0.2" dur="1500"></a-animation>
+                </a-entity>
+            </a-entity>
+        </a-entity> -->
+
+
+        <a-assets>
+            <a-mixin id="cube" geometry="primitive: box"></a-mixin>
+            <a-mixin id="rock" material="src: https://i.imgur.com/mYmmbrp.jpg"></a-mixin>
+        </a-assets>
+        
+        <a-entity position="0 2.2 4">
+            <a-entity camera look-controls wasd-controls>
+                <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
+                    material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true">
+                    <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2" to="1 1 1"
+                        dur="150"></a-animation>
+                    <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1"
+                        to="0.2 0.2 0.2" dur="1500"></a-animation>
+                </a-entity>
+            </a-entity>
+        </a-entity>
+        
+        
+        
+        <a-entity position="0 1 0">
+            <a-entity mixin="cube rock">
+                <a-animation begin="click" attribute="rotation" to="0 360 0" easing="ease-out" dur="2000" fill="forwards">
+                </a-animation>
+                <a-animation attribute="position" to="0 0.3 0" direction="alternate" dur="2000" repeat="indefinite">
+                </a-animation>
+                <a-animation attribute="rotation" to="0 360 0" easing="linear" dur="20000" repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-entity>
     </a-scene>
 </body>

@@ -19,7 +19,17 @@
         <a-entity gltf-model="./assets/articuno/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15"
             gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" animation-mixer />
         <a-camera gps-camera rotation-reader>
-            <a-cursor></a-cursor>
+                <a-entity position="0 2.2 4">
+                    <a-entity camera look-controls wasd-controls>
+                        <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
+                            material="color: cyan; shader: flat" cursor="fuse: true">
+                            <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2" to="1 1 1"
+                                dur="150"></a-animation>
+                            <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1"
+                                to="0.2 0.2 0.2" dur="1500"></a-animation>
+                        </a-entity>
+                    </a-entity>
+                </a-entity>
         </a-camera>
     </a-scene>
 </body>

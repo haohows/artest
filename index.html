@@ -84,7 +84,7 @@
         </a-assets>
         
         <a-entity position="0 2.2 4">
-            <a-entity camera look-controls wasd-controls>
+            <a-entity camera look-controls wasd-controls >
                 <a-entity position="0 0 -3" geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
                     material="color: cyan; shader: flat" cursor="maxDistance: 30; fuse: true">
                     <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2" to="1 1 1"
@@ -98,7 +98,7 @@
         
         
         <a-entity position="0 1 0">
-            <a-entity mixin="cube rock">
+            <a-entity mixin="cube rock" gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;">
                 <a-animation begin="click" attribute="rotation" to="0 360 0" easing="ease-out" dur="2000" fill="forwards">
                 </a-animation>
                 <a-animation attribute="position" to="0 0.3 0" direction="alternate" dur="2000" repeat="indefinite">

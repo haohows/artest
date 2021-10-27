@@ -97,16 +97,20 @@
 
 
 
-        <a-entity gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;">
-            <a-entity mixin="cube rock">
-                <a-animation begin="click" attribute="rotation" to="0 360 0" easing="ease-out" dur="2000"
-                    fill="forwards">
-                </a-animation>
-                <a-animation attribute="position" to="0 0.3 0" direction="alternate" dur="2000" repeat="indefinite">
-                </a-animation>
-                <a-animation attribute="rotation" to="0 360 0" easing="linear" dur="20000" repeat="indefinite">
-                </a-animation>
-            </a-entity>
+        <a-entity gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" rotation="0 180 0"
+            scale="1 1 1" mixin="cube rock">
+            <!-- <a-entity mixin="cube rock"> -->
+            <a-animation begin="click" attribute="rotation" to="0 360 0" easing="ease-out" dur="2000" fill="forwards">
+            </a-animation>
+            <a-animation attribute="position" to="0 0.3 0" direction="alternate" dur="2000" repeat="indefinite">
+            </a-animation>
+            <a-animation attribute="rotation" to="0 360 0" easing="linear" dur="20000" repeat="indefinite">
+            </a-animation>
+            <!-- </a-entity> -->
         </a-entity>
+
+        <!-- 
+        <a-entity  rotation="0 180 0" scale="0.15 0.15 0.15"
+            gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;" /> -->
     </a-scene>
 </body>

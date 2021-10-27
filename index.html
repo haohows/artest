@@ -37,7 +37,10 @@
 
 
         <a-entity position="0 1 0">
-            <a-entity mixin="cube green" gps-entity-place="longitude: 121.4313413906036 ; latitude: 25.035286587836943;">
+            <a-entity mixin="cube green"
+                gps-entity-place="longitude: 121.43152647223351 ; latitude: 25.035267157330672;">
+                <a-animation attribute="position" to="0 2.2 -5" direction="alternate" dur="2000" repeat="indefinite">
+                </a-animation>
                 <a-animation begin="click" attribute="rotation" to="0 360 0" easing="linear" dur="2000"
                     fill="backwards">
                 </a-animation>

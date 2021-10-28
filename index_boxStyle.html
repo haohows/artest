@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+    <!-- <script src="./script.js"></script> -->
+
+</head>
+
+<body style='margin: 0; overflow: hidden;'>
+    <a-scene vr-mode-ui="enabled: false" embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+
+        <a-assets>
+            <img id="rock" src="./assets/img/mYmmbrp.jpg">
+            <img id="wooden" src="./assets/img/wooden.png">
+        </a-assets>
+
+            <a-box src="./assets/img/wooden2.png" position="-2 0 -5" rotation="0 45 45" scale="1 1 1"
+                animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+                animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
+                animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
+                animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000"
+                animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+            </a-box>
+
+        <a-box src="./assets/img/question.jpg" position="0 0 -5" rotation="0 45 45" scale="1 1 1"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000"
+            animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+        </a-box>
+
+        <a-box src="./assets/img/question2.jpg" position="2 0 -5" rotation="0 45 45" scale="1 1 1"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000"
+            animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+        </a-box>
+
+
+        <a-box src="./assets/img/question3.jpg" position="4 0 -5" rotation="0 45 45" scale="1 1 1"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 500; easing:linear;delay: 1000"
+            animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+        </a-box>
+
+
+        <!-- <a-camera>
+            <a-entity
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                cursor="fuse: true;" material="color: cyan; shader: flat" position="0 0.7 -3"
+                geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.12;">
+            </a-entity>
+        </a-camera> -->
+
+    </a-scene>
+    <!-- <script>
+        var boxEl = document.querySelector('#tt');
+        boxEl.addEventListener('click', function () {
+            console.log(12);
+        });
+    </script> -->
+</body>

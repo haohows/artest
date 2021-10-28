@@ -80,7 +80,7 @@
 
 
         <a-box gps-entity-place="longitude:  121.43149032939922; latitude: 25.035342785049135"
-            src="./assets/img/question.jpg" position="0 8 0" rotation="0 45 45" scale="2 2 2"
+            src="./assets/img/wooden2.png" position="0 8 0" rotation="0 45 45" scale="2 2 2"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 8.5; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
@@ -92,8 +92,7 @@
 
         <!-- maxDistance: 30; -->
         <!-- <a-camera gps-camera rotation-reader> </a-camera> -->
-        <a-camera id='camera1' look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1'
-            gps-camera='gpsMinDistance: 5;maxDistance: 30;' rotation-reader>
+        <a-camera gps-camera="maxDistance: 30;" rotation-reader>
             <a-entity
                 animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"

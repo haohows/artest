@@ -40,6 +40,13 @@
             animation-mixer>
         </a-entity>
 
+        <a-entity gltf-model="./assets/role3/scene.gltf" position="-4 0 -5" scale="0.5 0.5 0.5"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
+            animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
+            animation__4="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation-mixer></a-entity>
+
+
         <a-box src="./assets/img/wooden2.png" position="-2 0 -5" rotation="0 45 45" scale="1 1 1" class="ar-box"
             value="行動幣 100 枚"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"

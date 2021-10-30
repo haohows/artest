@@ -24,15 +24,33 @@
             <img id="wooden" src="./assets/img/wooden.png">
         </a-assets>
 
-            <a-box src="./assets/img/wooden2.png" position="-2 0 -5" rotation="0 45 45" scale="1 1 1"
-                animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
-                animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
-                animation__3="property: rotation;startEvents: click;; to: 0 720 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
-                animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;delay: 1000"
-                animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
-            </a-box>
+        <a-entity gltf-model="./assets/role/scene.gltf" position="0 2 -5" scale="0.08 0.08 0.08"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 2.5; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
+            animation__4="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation-mixer></a-entity>
 
-        <a-box src="./assets/img/question.jpg" position="0 0 -5" rotation="0 45 45" scale="1 1 1"
+
+        <a-entity gltf-model="./assets/role2/scene.gltf" position="-2 2 -5" scale="0.0008 0.0008 0.0008"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 2.5; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
+            animation__4="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
+            animation-mixer>
+        </a-entity>
+
+        <a-box src="./assets/img/wooden2.png" position="-2 0 -5" rotation="0 45 45" scale="1 1 1" class="ar-box"
+            value="行動幣 100 枚"
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click;; to: 0 720 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;delay: 1000"
+            animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+        </a-box>
+
+        <a-box src="./assets/img/question.jpg" position="0 0 -5" rotation="0 45 45" scale="1 1 1" class="ar-box"
+            value="行動幣 200 枚"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
@@ -40,7 +58,8 @@
             animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
         </a-box>
 
-        <a-box src="./assets/img/question2.jpg" position="2 0 -5" rotation="0 45 45" scale="1 1 1"
+        <a-box src="./assets/img/question2.jpg" position="2 0 -5" rotation="0 45 45" scale="1 1 1" class="ar-box"
+            value="行動幣 300 枚"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
@@ -49,7 +68,8 @@
         </a-box>
 
 
-        <a-box src="./assets/img/question3.jpg" position="4 0 -5" rotation="0 45 45" scale="1 1 1"
+        <a-box src="./assets/img/question3.jpg" position="4 0 -5" rotation="0 45 45" scale="1 1 1" class="ar-box"
+            value="行動幣 400 枚"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 420 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
@@ -69,10 +89,18 @@
         </a-camera>
 
     </a-scene>
-    <!-- <script>
-        var boxEl = document.querySelector('#tt');
-        boxEl.addEventListener('click', function () {
-            console.log(12);
-        });
-    </script> -->
+    <script>
+        var arBox = document.querySelectorAll('.ar-box');
+        arBox.forEach(item => {
+            item.addEventListener('click', function ($event) {
+                console.log($event);
+                // arvm.$q.notify({
+                //     html: true,
+                //     message: `<div style="font-size:20px">喵喵喵喵</div>`,
+                //     icon: "tag_faces",
+                //     position: "top-left",
+                // });
+            });
+        })
+    </script>
 </body>

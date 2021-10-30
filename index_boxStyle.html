@@ -22,17 +22,16 @@
         <a-assets>
             <img id="rock" src="./assets/img/mYmmbrp.jpg">
             <img id="wooden" src="./assets/img/wooden.png">
+            <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
         </a-assets>
 
-        <a-entity gltf-model="./assets/role/scene.gltf" position="0 2 -5" scale="0.08 0.08 0.08"
-            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
-            animation__2="property: object3D.position.y; to: 2.5; dir: alternate; dur: 2000; loop: true"
+        <a-entity gltf-model="./assets/role/scene.gltf" position="0 0 -4" scale="0.08 0.08 0.08"
             animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
             animation__4="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
             animation-mixer></a-entity>
 
-
-        <a-entity gltf-model="./assets/role2/scene.gltf" position="-2 2 -5" scale="0.0008 0.0008 0.0008"
+<a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30"></a-plane>
+        <!-- <a-entity gltf-model="./assets/role2/scene.gltf" position="-2 2 -5" scale="0.0008 0.0008 0.0008"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 2.5; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
@@ -93,7 +92,7 @@
                 cursor="fuse: true;" material="color: cyan; shader: flat" position="0 0 -3"
                 geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.12;">
             </a-entity>
-        </a-camera>
+        </a-camera> -->
 
     </a-scene>
     <script>

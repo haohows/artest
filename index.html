@@ -31,7 +31,7 @@
 
         <a-entity gps-entity-place="longitude:  121.42180662707015; latitude: 25.038405440942405"
             gltf-model="./assets/role/scene.gltf" position="0 0 0" scale="0.2 0.2 0.2"
-            animation__3="property: rotation;startEvents: click; to: 0 0 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
+            animation="property: rotation;startEvents: click; to: 0 180 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
             animation-mixer>
         </a-entity>
 
@@ -114,7 +114,7 @@
                 animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-                cursor="fuse: true;" material="color: cyan; shader: flat" position="0 0 -3"
+                cursor="fuse: true;" material="color: cyan; shader: flat" position="0 1 -3"
                 geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;">
             </a-entity>
         </a-camera>

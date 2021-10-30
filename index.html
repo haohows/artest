@@ -6,44 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>GeoAR.js demo</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script>
-        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
-    </script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-    <a-scene vr-mode-ui="enabled: false" embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <!-- <a-text value="This content will always face you." look-at="[gps-camera]" scale="120 120 120"
+            gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"></a-text>
+        <a-camera gps-camera rotation-reader> </a-camera> -->
 
 
 
+        <!-- <a-assets>
+            <img id="rock" src="./assets/img/question.jpg">
+            <img id="wooden" src="./assets/img/wooden.png">
+            <img id="wooden2" src="./assets/img/wooden2.jpg">
+            <img id="marble" src="./assets/img/marble.jpg">
+            <img id="woodenwhite" src="./assets/img/woodenwhite.jpg">
+        </a-assets> -->
+                <a-entity gps-entity-place="longitude:  121.42180662707015; latitude: 25.038405440942405"
+                    gltf-model="./assets/role/scene.gltf" position="0 8 0" scale="0.24 0.24 0.24"
+                    animation__2="property: object3D.position.y; to: 8.5; dir: alternate; dur: 2000; loop: true"
+                    animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
+                    animation-mixer>
+                </a-entity>
+                
+                
+                <a-entity gps-entity-place="longitude:  121.4219818035106; latitude: 25.038317219651887"
+                    gltf-model="./assets/role2/scene.gltf" position="0 8 0" scale="0.0024 0.0024 0.0024"
+                    animation__2="property: object3D.position.y; to: 8.5; dir: alternate; dur: 2000; loop: true"
+                    animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
+                    animation-mixer>
+                </a-entity>
 
-        <!-- <a-entity gps-entity-place="longitude:  121.42180662707015; latitude: 25.038405440942405"
-            gltf-model="./assets/articuno/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15"
-            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
-            animation__2="property: object3D.position.y; to: 2.5; dir: alternate; dur: 2000; loop: true"
-            animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
-            animation__4="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
-            animation-mixer>
-        </a-entity> -->
 
-
-        <a-entity gps-entity-place="longitude:  121.42180662707015; latitude: 25.038405440942405"
-            gltf-model="./assets/role/scene.gltf" position="0 8 0" scale="0.24 0.24 0.24"
-            animation__2="property: object3D.position.y; to: 8.5; dir: alternate; dur: 2000; loop: true"
-            animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
-            animation-mixer>
-        </a-entity>
-
-
-        <a-entity gps-entity-place="longitude:  121.4219818035106; latitude: 25.038317219651887"
-            gltf-model="./assets/role2/scene.gltf" position="0 8 0" scale="0.0024 0.0024 0.0024"
-            animation__2="property: object3D.position.y; to: 8.5; dir: alternate; dur: 2000; loop: true"
-            animation__3="property: rotation;startEvents: click; to: 0 00 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
-            animation-mixer>
-        </a-entity>
 
         <a-box gps-entity-place="longitude:  121.4219409418102; latitude: 25.038325055871468"
             src="./assets/img/wooden2.png" position="0 8 0" rotation="0 45 45" scale="2 2 2"

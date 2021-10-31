@@ -26,10 +26,10 @@
             <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
         </a-assets>
 
-        <!-- <a-cylinder id="ground" src="#groundTexture" radius="500" height="0.1"></a-cylinder>
-        <a-sky id="background" src="#skyTexture" theta-length="90" radius="500"></a-sky> -->
+        <a-cylinder id="ground" src="#groundTexture" radius="500" height="0.1"></a-cylinder>
+        <a-sky id="background" src="#skyTexture" theta-length="90" radius="500"></a-sky>
 
-        <a-entity gps-entity-place="longitude:  121.42180662707015; latitude: 25.038405440942405"
+        <a-entity gps-entity-place="longitude:  121.42180662707015; latitude: 25.038405440942405" data-raycastable
             gltf-model="./assets/role/scene.gltf" position="0 0 0" scale="0.2 0.2 0.2" rotation="0 0 0"
             animation="property: rotation;startEvents: click; to: 0 180 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
             animation-mixer>
@@ -44,7 +44,7 @@
 
 
 
-        <a-box gps-entity-place="longitude:  121.4219409418102; latitude: 25.038325055871468"
+        <a-box gps-entity-place="longitude:  121.4219409418102; latitude: 25.038325055871468" data-raycastable
             src="./assets/img/wooden2.png" position="0 8 0" rotation="0 45 45" scale="2 2 2"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear;delay: 5000"
             animation__2="property: object3D.position.y; to: 8.5; dir: alternate; dur: 2000; loop: true;delay: 5000"
@@ -54,7 +54,7 @@
         </a-box>
 
 
-        <a-box gps-entity-place="longitude:  121.42179476142465; latitude: 25.03843623509647"
+        <a-box gps-entity-place="longitude:  121.42179476142465; latitude: 25.03843623509647" data-raycastable
             src="./assets/img/question.jpg" position="0 8 0" rotation="0 45 45" scale="2 2 2"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear;delay: 1500"
             animation__2="property: object3D.position.y; to: 8.5; dir: alternate; dur: 2000; loop: true;delay: 1500"
@@ -115,6 +115,7 @@
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
                 cursor="fuse: true;" material="color: cyan; shader: flat" position="0 1 -3"
+                raycaster="maxDistance: 30; objects: [data-raycastable]"
                 geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;">
             </a-entity>
         </a-camera>

@@ -30,6 +30,7 @@
         <a-sky id="background" src="#skyTexture" theta-length="90" radius="500"></a-sky>
 
         <a-entity gltf-model="./assets/role/scene.gltf" position="0 0 -4" scale="0.08 0.08 0.08" rotation="0 180 0"
+            data-raycastable
             animation__3="property: rotation;startEvents: click; to: 0 0 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
             animation-mixer>
 
@@ -49,15 +50,15 @@
             animation__4="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear"
             animation-mixer></a-entity> -->
 
-        <!-- 
+
         <a-box src="./assets/img/wooden2.png" position="-2 0 -5" rotation="0 45 45" scale="1 1 1" class="ar-box"
-            value="行動幣 100 枚"
+            data-raycastable value="行動幣 100 枚"
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 0.2; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 720 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
             animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;delay: 1000"
             animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
-        </a-box> -->
+        </a-box>
 
         <!-- <a-box src="./assets/img/iron.jpg" position="0 0 -5" rotation="0 45 45" scale="1 1 1" class="ar-box"
             value="行動幣 200 枚"
@@ -94,6 +95,7 @@
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
                 cursor="fuse: true;" material="color: cyan; shader: flat" position="0 1 -3"
+                raycaster="maxDistance: 30; objects: [data-raycastable]"
                 geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.12;">
             </a-entity>
         </a-camera>

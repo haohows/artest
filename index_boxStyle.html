@@ -8,11 +8,17 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
     <!-- <script src="./script.js"></script> -->
-
+    <style>
+        .kl {
+            color: #375e56
+        }
+    </style>
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
@@ -21,22 +27,25 @@
 
         <a-assets>
             <img id="rock" src="./assets/img/mYmmbrp.jpg">
-            <img id="wooden" src="./assets/img/wooden.png">
+            <img id="wooden" src="./assets/img/wooden2.png">
             <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
             <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+            <a-asset-item id="role" src="./assets/role/scene.gltf">
         </a-assets>
-        <a-cylinder id="ground" src="#groundTexture" radius="500" height="0.1" repeat="5 5"></a-cylinder>
-        <a-sky id="background" src="#skyTexture" theta-length="90" radius="500"></a-sky>
+        <!-- <a-cylinder id="ground" src="#groundTexture" radius="500" height="0.1" repeat="5 5"></a-cylinder>
+        <a-sky id="background" src="#skyTexture" theta-length="90" radius="500"></a-sky> -->
 
-        <a-entity gltf-model="./assets/role/scene.gltf" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 0 0"
-            data-raycastable
-            animation__3="property: rotation;startEvents: click; to: 0 0 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
+        <a-entity environment="preset: forest; skyType: atmosphere;"></a-entity>
+        <a-light type="ambient" color="#375e56"></a-light>
+
+        <!-- <a-light type="ambient" color="#222"></a-light> -->
+        <a-gltf-model src="#role" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 0 0" data-raycastable
+            animation="property: rotation;startEvents: click; to: 0 0 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
             animation-mixer>
+        </a-gltf-model>
 
-        </a-entity>
-
-        <a-box src="./assets/img/wooden2.png" position="0 4 -5" rotation="0 45 45" scale="0.8 0.8 0.8" class="ar-box"
-            data-raycastable value="行動幣 100 枚"
+        <!-- material="shader: flat;" -->
+        <a-box src="#wooden" position="0 4 -5"  scale="0.8 0.8 0.8" class="ar-box" data-raycastable
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 4.5; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 720 0; dir: alternate; dur: 2500; easing:easeOutCubic;"

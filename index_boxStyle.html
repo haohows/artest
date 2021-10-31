@@ -20,23 +20,32 @@
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
         <a-assets>
+            <img id="text" src="./assets/text/test.png">
+            <img id="message" src="./assets/text/message.png">
             <img id="rock" src="./assets/img/mYmmbrp.jpg">
             <img id="wooden" src="./assets/img/wooden2.png">
             <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
             <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
             <a-asset-item id="role" src="./assets/role/scene.gltf">
+
         </a-assets>
         <!-- <a-cylinder id="ground" src="#groundTexture" radius="500" height="0.1" repeat="5 5"></a-cylinder>
         <a-sky id="background" src="#skyTexture" theta-length="90" radius="500"></a-sky> -->
 
-        <a-entity environment="preset: forest; skyType: atmosphere; groundTexture: checkerboard"></a-entity>
+        <a-entity
+            environment="preset: forest; skyType: atmosphere; groundTexture: checkerboard; ground: flat; dressingAmount: 1000;">
+        </a-entity>
         <a-light type="ambient" color="#375e56"></a-light>
         <!-- checkerboard, squares, walkernoise -->
         <!-- <a-light type="ambient" color="#222"></a-light> -->
-        <a-gltf-model src="#role" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 0 0" data-raycastable
-            animation="property: rotation;startEvents: click; to: 0 0 0; dir: alternate; dur: 1500; easing:easeOutCubic;"
-            animation-mixer>
+        <a-gltf-model src="#role" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 0 0" data-raycastable id="aaa"
+            look-at="[gps-camera]" animation-mixer>
         </a-gltf-model>
+
+        <a-image src="#message" look-at="[gps-camera]" position="1.5 2 -4" width="2" height="1" id="bbb" scale="0 0 0"
+            data-raycastable
+            animation="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear">
+        </a-image>
 
         <!-- material="shader: flat;" -->
         <a-box src="#wooden" position="0 4 -5" scale="0.8 0.8 0.8" class="ar-box" data-raycastable
@@ -58,4 +67,14 @@
             </a-entity>
         </a-camera>
     </a-scene>
+    <script>
+        let eventAAA = document.querySelector("#aaa")
+        eventAAA.addEventListener("click", function () {
+            let eventBBB = document.querySelector("#bbb")
+            eventBBB.setAttribute('animation__6', 'property: scale; to: 1 1 1; dir: alternate;  dur: 300; easing:linear')
+            setTimeout(() => {
+                eventBBB.setAttribute('animation__6', 'property: scale; to: 0 0 0; dir: alternate;  dur: 300; easing:linear')
+            }, 5000);
+        })
+    </script>
 </body>

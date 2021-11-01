@@ -40,12 +40,14 @@
 
         <!-- 轉向測試 -->
         <a-gltf-model gps-entity-place="longitude: 121.43159629816697; latitude: 25.03514787141554" data-raycastable
-            id="tr" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 350 0" animation-mixer>
+            look-at="[gps-camera]" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 0 0"
+            animation-mixer>
         </a-gltf-model>
 
         <!-- 轉向測試2 -->
         <a-gltf-model gps-entity-place="longitude: 121.43159965092796; latitude: 25.035173388628813" data-raycastable
-            id="tr2" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 280 0" animation-mixer>
+            look-at="[gps-camera]" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 0 0"
+            animation-mixer>
         </a-gltf-model>
 
         <a-gltf-model gps-entity-place="longitude:  121.42186267776907; latitude: 25.038361763234835" data-raycastable
@@ -134,7 +136,7 @@
         <!-- maxDistance: 30; -->
         <!-- <a-camera gps-camera rotation-reader> </a-camera> -->
         <a-camera gps-camera="maxDistance: 30;" rotation-reader>
-            <a-entity id="camera"
+            <a-entity
                 animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
@@ -144,7 +146,7 @@
             </a-entity>
         </a-camera>
     </a-scene>
-    <script>
+    <!-- <script>
         let camera = document.querySelector("#camera")
         let evtr = document.querySelector("#tr")
         let evtr2 = document.querySelector("#tr2")
@@ -156,7 +158,7 @@
             evtr2.object3D.lookAt(camera.object3D.position)
             // evtr2.setAttribute('animation', `property: rotation; to: 0 90 0; dir: normal; dur: 1200; easing:easeOutCubic`)
         })
-    </script>
+    </script> -->
 </body>
 
 </html>

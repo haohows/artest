@@ -38,7 +38,7 @@
         <a-light type="ambient" color="#375e56"></a-light>
         <!-- checkerboard, squares, walkernoise -->
         <!-- <a-light type="ambient" color="#222"></a-light> -->
-        <a-gltf-model src="#role" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 90 0" data-raycastable
+        <a-gltf-model src="#role" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 0 0" data-raycastable
             id="aaa" animation-mixer>
         </a-gltf-model>
 
@@ -62,7 +62,7 @@
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
                 cursor="fuse: true;" material="color: cyan; shader: flat" position="0 0 -2"
-                raycaster="far: 5; interval: 0; objects: [data-raycastable]"
+                raycaster="far: 15; interval: 0; objects: [data-raycastable]"
                 geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;">
             </a-entity>
         </a-camera>
@@ -79,8 +79,9 @@
         // })
 
         eventAAA.addEventListener("click", function () {
-            console.log(camera.object3D.position,'camera.object3D.position');
-            eventAAA.setAttribute('animation', `property: rotation; to: ${camera.object3D.position}; dir: normal; dur: 1200; easing:easeOutCubic`)
+            eventAAA.object3D.lookAt(camera.object3D.position)
+            // console.log(camera.object3D.position,'camera.object3D.position');
+            // eventAAA.setAttribute('animation', `property: rotation; to: ${camera.object3D.position}; dir: normal; dur: 1200; easing:easeOutCubic`)
         })
     </script>
 </body>

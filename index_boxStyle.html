@@ -9,7 +9,7 @@
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script
-        src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+        src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
@@ -38,13 +38,13 @@
         <a-light type="ambient" color="#375e56"></a-light>
         <!-- checkerboard, squares, walkernoise -->
         <!-- <a-light type="ambient" color="#222"></a-light> -->
-        <a-gltf-model src="#role" position="2 0 -5" scale="0.085 0.085 0.085" rotation="0 25 0" data-raycastable
+        <a-gltf-model src="#role" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 0 0" data-raycastable
             id="aaa" animation-mixer>
         </a-gltf-model>
 
         <a-image src="#message" look-at="[gps-camera]" position="1.5 2 -4" width="2" height="1" id="bbb" scale="0 0 0"
             data-raycastable
-            animation="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear">
+            animation="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;">
         </a-image>
 
         <!-- material="shader: flat;" -->

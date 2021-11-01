@@ -35,9 +35,13 @@
         <a-entity environment="preset: forest; skyType: atmosphere; groundTexture: checkerboard"></a-entity>
         <a-light type="ambient" color="#375e56"></a-light>
 
+        <!-- 轉向測試 -->
+        <a-gltf-model gps-entity-place="longitude:  121.43150059265615; latitude: 25.03533631806956" data-raycastable
+            src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 0 0" animation-mixer>
+        </a-gltf-model>
+
         <a-gltf-model gps-entity-place="longitude:  121.42186267776907; latitude: 25.038361763234835" data-raycastable
             look-at="[gps-camera]" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 0 0"
-    
             animation-mixer>
         </a-gltf-model>
 

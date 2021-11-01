@@ -40,12 +40,14 @@
 
         <!-- 轉向測試 -->
         <a-gltf-model gps-entity-place="longitude: 121.43159629816697; latitude: 25.03514787141554" data-raycastable
-            id="tr" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 200 0" animation-mixer>
+            look-at="[gps-camera]" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 200 0"
+            animation-mixer>
         </a-gltf-model>
 
         <!-- 轉向測試2 -->
         <a-gltf-model gps-entity-place="longitude: 121.43159965092796; latitude: 25.035173388628813" data-raycastable
-            id="tr2" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 250 0" animation-mixer>
+            look-at="[gps-camera]" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 250 0"
+            animation-mixer>
         </a-gltf-model>
 
         <a-gltf-model gps-entity-place="longitude:  121.42186267776907; latitude: 25.038361763234835" data-raycastable
@@ -144,7 +146,7 @@
             </a-entity>
         </a-camera>
     </a-scene>
-    <script>
+    <!-- <script>
         let camera = document.querySelector("#camera")
         let evtr = document.querySelector("#tr")
         let evtr2 = document.querySelector("#tr2")
@@ -154,7 +156,7 @@
         evtr2.addEventListener("click", function () {
             evtr2.setAttribute('animation', `property: rotation; to: 0 90 0; dir: normal; dur: 1200; easing:easeOutCubic`)
         })
-    </script>
+    </script> -->
 </body>
 
 </html>

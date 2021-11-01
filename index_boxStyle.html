@@ -79,6 +79,7 @@
         // })
 
         eventAAA.addEventListener("click", function () {
+            console.log(camera.object3D.position,'camera.object3D.position');
             eventAAA.setAttribute('animation', `property: rotation; to: ${camera.object3D.position}; dir: normal; dur: 1200; easing:easeOutCubic`)
         })
     </script>

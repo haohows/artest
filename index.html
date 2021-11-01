@@ -52,8 +52,7 @@
 
         <!-- 家裡 -->
         <a-gltf-model gps-entity-place="longitude:  121.42196219482065; latitude: 25.038420771670257" data-raycastable
-            look-at="[gps-camera]" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 0 0"
-            animation-mixer>
+            id="tr" src="#role" position="0 0 0" scale="0.085 0.085 0.085" rotation="0 0 0" animation-mixer>
         </a-gltf-model>
 
 
@@ -153,19 +152,19 @@
             </a-entity>
         </a-camera>
     </a-scene>
-    <!-- <script>
+    <script>
         let camera = document.querySelector("#camera")
         let evtr = document.querySelector("#tr")
-        let evtr2 = document.querySelector("#tr2")
+        // let evtr2 = document.querySelector("#tr2")
         evtr.addEventListener("click", function () {
             evtr.object3D.lookAt(camera.object3D.position)
             // evtr.setAttribute('animation', `property: rotation; to: 0 90 0; dir: normal; dur: 1200; easing:easeOutCubic`)
         })
-        evtr2.addEventListener("click", function () {
-            evtr2.object3D.lookAt(camera.object3D.position)
-            // evtr2.setAttribute('animation', `property: rotation; to: 0 90 0; dir: normal; dur: 1200; easing:easeOutCubic`)
-        })
-    </script> -->
+        // evtr2.addEventListener("click", function () {
+        //     evtr2.object3D.lookAt(camera.object3D.position)
+        //     // evtr2.setAttribute('animation', `property: rotation; to: 0 90 0; dir: normal; dur: 1200; easing:easeOutCubic`)
+        // })
+    </script>
 </body>
 
 </html>

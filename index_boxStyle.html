@@ -8,8 +8,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script
-        src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
@@ -26,34 +25,51 @@
             <img id="wooden" src="./assets/img/wooden2.png">
             <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
             <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+            <img id="fju" src="./assets/img/fju.jpg">
             <a-asset-item id="role" src="./assets/role/scene.gltf">
-
+                <a-asset-item id="giftBox" src="./assets/giftBox/scene.gltf"></a-asset-item>
+                <a-asset-item id="giftBox2" src="./assets/giftBox2/scene.gltf"></a-asset-item>
+                <a-asset-item id="box" src="./assets/box/scene.gltf"></a-asset-item>
+                <a-asset-item id="giftBoxs" src="./assets/gifts/scene.gltf"></a-asset-item>
+                <a-asset-item id="super" src="./assets/super/scene.gltf"></a-asset-item>
+                <a-asset-item id="super2" src="./assets/super2/scene.gltf"></a-asset-item>
         </a-assets>
+        <a-sky src="#fju" ></a-sky> 
         <!-- <a-cylinder id="ground" src="#groundTexture" radius="500" height="0.1" repeat="5 5"></a-cylinder>
         <a-sky id="background" src="#skyTexture" theta-length="90" radius="500"></a-sky> -->
 
-        <a-entity
+        <!-- <a-entity
             environment="preset: forest; skyType: atmosphere; groundTexture: checkerboard; ground: flat; dressingAmount: 1000;">
         </a-entity>
-        <a-light type="ambient" color="#375e56"></a-light>
+        <a-light type="ambient" color="#375e56"></a-light> -->
         <!-- checkerboard, squares, walkernoise -->
         <!-- <a-light type="ambient" color="#222"></a-light> -->
-        <a-gltf-model src="#role" position="0 0 -5" scale="0.085 0.085 0.085" rotation="0 0 0" data-raycastable
+        <!-- <a-gltf-model src="#role" position="0 0 -10" scale="0.085 0.085 0.085" rotation="0 0 0" data-raycastable
             id="aaa" animation-mixer>
-        </a-gltf-model>
+        </a-gltf-model> -->
 
-        <a-image src="#message" look-at="[gps-camera]" position="1.5 2 -4" width="2" height="1" id="bbb" scale="0 0 0"
+        <!-- <a-gltf-model src="#box" position="2 0.8 -2" scale="0.4 0.4 0.4" class="ar-box" data-raycastable
+            animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 10000; loop: true;easing:linear"
+            animation__2="property: object3D.position.y; to: 1; dir: alternate; dur: 2000; loop: true"
+            animation__3="property: rotation;startEvents: click;; to: 0 720 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;delay: 1000"
+            >
+        </a-gltf-model>
+ -->
+
+
+
+        <!-- <a-image src="#message" look-at="[gps-camera]" position="1.5 2 -4" width="2" height="1" id="bbb" scale="0 0 0"
             data-raycastable
             animation="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;">
-        </a-image>
+        </a-image> -->
 
         <!-- material="shader: flat;" -->
-        <a-box src="#wooden" position="0 4 -5" scale="0.8 0.8 0.8" class="ar-box" data-raycastable
+        <!-- <a-box src="#wooden" position="0 4 -7" scale="0.8 0.8 0.8" class="ar-box" data-raycastable
             animation="property: rotation;from: 0 0 0; to: 0 360 0; dir: normal; dur: 15000; loop: true;easing:linear"
             animation__2="property: object3D.position.y; to: 4.5; dir: alternate; dur: 2000; loop: true"
             animation__3="property: rotation;startEvents: click;; to: 0 720 0; dir: alternate; dur: 2500; easing:easeOutCubic;"
-            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;delay: 1000"
-            animation__5="property: rotation;startEvents: mouseleave; to: 0 360 0; dir: normal; dur: 20000; loop: true;easing:linear">
+            animation__4="property: scale;startEvents: click; to: 0 0 0; dir: alternate;  dur: 300; easing:linear;delay: 1000">
         </a-box>
 
         <a-camera>
@@ -62,12 +78,12 @@
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
                 cursor="fuse: true;" material="color: cyan; shader: flat" position="0 0 -2"
-                raycaster="far: 15; interval: 0; objects: [data-raycastable]"
-                geometry="primitive: ring; radiusInner: 0.05; radiusOuter: 0.08;">
+                raycaster="far: 3; interval: 0; objects: [data-raycastable]"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;">
             </a-entity>
-        </a-camera>
+        </a-camera> -->
     </a-scene>
-    <script>
+    <!-- <script>
         let eventAAA = document.querySelector("#aaa")
         let camera = document.querySelector("#camera")
         // eventAAA.addEventListener("click", function () {
@@ -83,5 +99,5 @@
             // console.log(camera.object3D.position,'camera.object3D.position');
             // eventAAA.setAttribute('animation', `property: rotation; to: ${camera.object3D.position}; dir: normal; dur: 1200; easing:easeOutCubic`)
         })
-    </script>
+    </script> -->
 </body>
